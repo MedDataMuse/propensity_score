@@ -75,3 +75,9 @@
 > Cet effet délétère est robuste à travers différentes méthodes d'ajustement (score de propension, appariement, stratification).
 
 ---
+## Fichiers du Projet
+- `/data` : Jeux de données nettoyés  
+- `/scripts` :  
+  - `data_cleaning.R` (prétraitement)  
+  - `propensity_score.R` (modélisation SP)  
+  - `survival_analysis.R` (modèles de survie)  
