@@ -4,6 +4,7 @@
 **Contexte**  
 Étude rétrospective analysant 5735 observations en unité de soins intensifs. L'objectif est d'évaluer si la pose d'une sonde de Swan Ganz (RHC) est associée à une augmentation du risque de décès comparé à sa non-utilisation, en fonction de l'état clinique des patients.
 
+#### Explication simple de la notion de score de propension [ici](https://meddatamuse.github.io/propensity_score/)
 ---
 
 ### **Variables Analysées**  
