@@ -1,6 +1,5 @@
-# propensity_score
 
-### Résumé de l'Étude : Impact de la Sonde de Swan Ganz en Réanimation  
+# Étude : Impact de la Sonde de Swan Ganz en Réanimation
 
 **Contexte**  
 Étude rétrospective analysant 5735 observations en unité de soins intensifs. L'objectif est d'évaluer si la pose d'une sonde de Swan Ganz (RHC) est associée à une augmentation du risque de décès comparé à sa non-utilisation, en fonction de l'état clinique des patients.
@@ -40,19 +39,33 @@
 
 ---
 
-### **Analyse de Survie**  
-- **Périodes de suivi** :  
-  - Principale : **30 jours** après l'admission.  
-  - Exploratoire : 180 jours.  
+## Contexte
+Étude rétrospective sur 5735 patients en soins intensifs évaluant l'association entre l'utilisation d'une sonde de Swan Ganz et la mortalité à 30 jours.
 
----
+## Méthodologie
+- **Score de propension** : Modèle logistique intégrant 52 covariables cliniques/démographiques.
+- **Techniques d'ajustement** :  
+  - Appariement par plus proche voisin (caliper=0.05)  
+  - Stratification en déciles  
+  - Modèles de régression logistique/Cox ajustés  
+- **Critères de jugement**: Analyse de Survie. Décès à 30 jours (principal) et 180 jours (exploratoire).
 
-### **Fichiers et Dépôt GitHub**  
-- **Jeu de données** : `[nom_du_fichier.csv]` (après prétraitement).  
-- **Scripts d'analyse** :  
-  - `data_cleaning.R` (nettoyage et imputation).  
-  - `survival_analysis.R` (modèles de survie).  
-- **Résultats clés** : À inclure dans le rapport final (voir dossier `/results`).  
+## Résultats
+| Méthode d'Ajustement       | Risque Relatif (IC 95%)   |  
+|----------------------------|---------------------------|  
+| Régression (SP)            | OR = 1.27 [1.11–1.44]     |  
+| Appariement                | OR = 1.28 [1.10–1.48]     |  
+| Stratification             | OR = 1.38 [1.24–1.55]     |  
+| Modèle de Cox (SP)         | HR = 1.21 [1.10–1.34]     |  
 
----  
-**Objectif Final** : Fournir une analyse robuste de l'impact de la sonde de Swan Ganz sur la mortalité en réanimation, ajustée aux caractéristiques cliniques des patients.
+**Conclusion clinique** : Utilisation associée à une augmentation significative du risque de décès à court terme.
+
+## Fichiers du Projet
+- `/data` : Jeux de données nettoyés  
+- `/scripts` :  
+  - `data_cleaning.R` (prétraitement)  
+  - `propensity_score.R` (modélisation SP)  
+  - `survival_analysis.R` (modèles de survie)  
+- `/results` :  
+  - Figures (distributions SP, courbes KM)  
+  - Tables (odds ratios, tests)  
