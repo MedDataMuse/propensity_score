@@ -39,33 +39,39 @@
 
 ---
 
-## Contexte
-Étude rétrospective sur 5735 patients en soins intensifs évaluant l'association entre l'utilisation d'une sonde de Swan Ganz et la mortalité à 30 jours.
+### **Méthodes Clés**  
+1. **Analyse Préliminaire**  
+   - **Odds Ratio brut** : 1.39 (décès à 30j avec RHC vs sans RHC).  
+   - **Courbes de Kaplan-Meier** :  
+     - Survie médiane : 98 jours (avec RHC) vs 180 jours (sans RHC).  
 
-## Méthodologie
-- **Score de propension** : Modèle logistique intégrant 52 covariables cliniques/démographiques.
-- **Techniques d'ajustement** :  
-  - Appariement par plus proche voisin (caliper=0.05)  
-  - Stratification en déciles  
-  - Modèles de régression logistique/Cox ajustés  
-- **Critères de jugement**: Analyse de Survie. Décès à 30 jours (principal) et 180 jours (exploratoire).
+2. **Score de Propension (SP)**  
+   - Modèle logistique prédictif de l'utilisation de RHC (52 covariables cliniques/démographiques).  
+   - Distribution équilibrée entre groupes (bon recouvrement).  
 
-## Résultats
-| Méthode d'Ajustement       | Risque Relatif (IC 95%)   |  
-|----------------------------|---------------------------|  
-| Régression (SP)            | OR = 1.27 [1.11–1.44]     |  
-| Appariement                | OR = 1.28 [1.10–1.48]     |  
-| Stratification             | OR = 1.38 [1.24–1.55]     |  
-| Modèle de Cox (SP)         | HR = 1.21 [1.10–1.34]     |  
+3. **Techniques d'Ajustement**  
+   | Méthode                     | Résultat (décès à 30j)       |  
+   |-----------------------------|-----------------------------|  
+   | **Régression logistique (SP)** | OR = 1.27 [1.11-1.44], p<0.001 |  
+   | **Appariement (caliper=0.05)** | OR = 1.28 [1.10-1.48]        |  
+   | **Stratification (10 déciles)**| OR = 1.38 [1.24-1.55]        |  
+   | **Modèle de Cox (ajusté SP)**  | HR = 1.21 [1.1-1.34]          |  
 
-**Conclusion clinique** : Utilisation associée à une augmentation significative du risque de décès à court terme.
+---
 
-## Fichiers du Projet
-- `/data` : Jeux de données nettoyés  
-- `/scripts` :  
-  - `data_cleaning.R` (prétraitement)  
-  - `propensity_score.R` (modélisation SP)  
-  - `survival_analysis.R` (modèles de survie)  
-- `/results` :  
-  - Figures (distributions SP, courbes KM)  
-  - Tables (odds ratios, tests)  
+### **Résultats Clés**  
+- **Association significative** : Toutes les méthodes convergent vers un risque accru de décès à 30j avec RHC (OR/HR > 1).  
+- **Effet indépendant de la gravité** :  
+  - Le surrisque persiste après ajustement par SP (synthèse des covariables).  
+  - Confirmé par l'analyse stratifiée : effet délétère de RHC observé dans plusieurs déciles de gravité.  
+- **Validation des modèles** :  
+  - Hypothèse des risques proportionnels respectée (modèle de Cox).  
+  - Taille d'échantillon adéquate (≥ 10 événements par variable).  
+
+---
+
+### **Conclusion**  
+> **La sonde de Swan Ganz est associée à une augmentation de 21 à 38% du risque de décès à 30 jours**, indépendamment de l'état clinique des patients.  
+> Cet effet délétère est robuste à travers différentes méthodes d'ajustement (score de propension, appariement, stratification).
+
+---
